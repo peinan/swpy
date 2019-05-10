@@ -1,0 +1,11 @@
+*.swp
+*.swo
+
+.tox
+dist
+*.egg-info
+__pycache__
+.pytest_cache
+
+.coverage
+coverage.xml
