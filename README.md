@@ -1,6 +1,6 @@
 # swpy: A simple, yet useful stopwatch library for python
 
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/swpy.svg?style=flat-square)](https://pypi.org/project/swpy/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/swpy.svg?logo=python&logoColor=white&style=flat-square)](https://pypi.org/project/swpy/)
 [![PyPI](https://img.shields.io/pypi/v/swpy.svg?style=flat-square)](https://pypi.org/project/swpy/)
 [![CircleCI](https://img.shields.io/circleci/project/github/peinan/swpy.svg?logo=circleci&style=flat-square)](https://circleci.com/gh/peinan/swpy/tree/master)
 [![codecov](https://img.shields.io/codecov/c/gh/peinan/swpy.svg?logo=codecov&style=flat-square)](https://codecov.io/gh/peinan/swpy)
