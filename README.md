@@ -2,9 +2,9 @@
 
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/swpy.svg?style=flat-square)](https://pypi.org/project/swpy/)
 [![PyPI](https://img.shields.io/pypi/v/swpy.svg?style=flat-square)](https://pypi.org/project/swpy/)
-[![CircleCI](https://img.shields.io/circleci/project/github/peinan/swpy/master.svg?color=brightgreen&style=flat-square)](https://circleci.com/gh/peinan/swpy/tree/master)
-[![codecov](https://codecov.io/gh/peinan/swpy/branch/master/graph/badge.svg?token=ztxEI8QioI)](https://codecov.io/gh/peinan/swpy)
-[![license](https://img.shields.io/pypi/l/swpy.svg?color=brightgreen&style=flat-square)](https://github.com/peinan/swpy/blob/master/LICENSE)
+[![CircleCI](https://img.shields.io/circleci/project/github/peinan/swpy.svg?logo=circleci&style=flat-square)](https://circleci.com/gh/peinan/swpy/tree/master)
+[![codecov](https://img.shields.io/codecov/c/gh/peinan/swpy.svg?logo=codecov&style=flat-square)](https://codecov.io/gh/peinan/swpy)
+[![PyPI - License](https://img.shields.io/pypi/l/swpy.svg?color=blue&style=flat-square)](https://github.com/peinan/swpy/blob/master/LICENSE)
 
 ## Requirements
 
