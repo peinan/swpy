@@ -1,16 +1,60 @@
-#!/usr/bin/env python
-# coding: utf-8
-#
-# Filename:   swpy.py
-# Author:     Peinan ZHANG
-# Created at: 2019-05-09
+"""
+swpy
+====
+
+A simple, yet useful stopwatch library.
+
+Usage
+-----
+
+Use context manager or initializing with class, it depends on you.
+
+Example:
+    >>> from swpy import Timer
+    >>> import time
+
+    # the way of using context manager
+    >>> with Timer():
+    ...     time.sleep(1)
+
+    [timer-1557406243.3309178] started.
+    [timer-1557406243.3309178] finish time: 1.00 sec.
+
+    # the way of using initializing class
+    >>> timer = Timer():
+    >>> time.sleep(1)
+    >>> timer.stop()
+
+    [timer-1557406243.3309178] started.
+    [timer-1557406243.3309178] finish time: 1.00 sec.
+"""
 
 import time
 import logging
 
 
+__author__ = 'Peinan ZHANG'
+__version__ = (0, 1, 1)
+__license__ = 'MIT'
+
+
 class Timer:
     def __init__(self, name=None, logger=None, level=logging.DEBUG, digits=2, callback=None):
+        """
+        Args:
+            :param name str: The name of the timer. default: 'time-{NOW}'
+            :param logger logger: Specific the logger. default: print
+            :param level: The log level while using logger.
+            :param digits int: The digit of time demical. digits=2 will look like 1.00.
+            :param callback callable: The callback.
+
+        Example:
+            >>> with Timer():
+            ...   time.sleep(1)
+
+            [timer-1557406243.3309178] started.
+            [timer-1557406243.3309178] finish time: 1.00 sec.
+        """
         self.name = name if name else f'timer-{time.time()}'
         self.print = print if not logger else lambda msg: logger.log(level, msg)
         self.level = level

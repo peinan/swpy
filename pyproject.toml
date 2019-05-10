@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "swpy"
-version = "0.1.0"
+version = "0.1.1"
 description = "A simple, yet useful stopwatch library."
 authors = ["Peinan ZHANG <peinan7@gmail.co.jp>"]
 license = "MIT"
