@@ -44,9 +44,13 @@ workflows:
     jobs:
       - build-and-test:
           filters:
-            branches:
-              only: master
+            branch:
+              ignore: /.*/
+            tag:
+              only: /v[0-9]+(\.[0-9]+)*/
       - deploy:
           filters:
+            branch:
+              ignore: /.*/
             tags:
               only: /v[0-9]+(\.[0-9]+)*/
