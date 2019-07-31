@@ -29,12 +29,11 @@ Example:
     [timer-1557406243.3309178] finish time: 1.00 sec.
 """
 
-import time
 import logging
-
+import time
 
 __author__ = 'Peinan ZHANG'
-__version__ = (0, 1, 1)
+__version__ = (0, 1, 2)
 __license__ = 'MIT'
 
 
@@ -55,7 +54,7 @@ class Timer:
             [timer-1557406243.3309178] started.
             [timer-1557406243.3309178] finish time: 1.00 sec.
         """
-        self.name = name if name else f'timer-{time.time()}'
+        self.timername = name if name else f'timer-{time.time()}'
         self.print = print if not logger else lambda msg: logger.log(level, msg)
         self.level = level
         self.digits = digits
@@ -63,7 +62,9 @@ class Timer:
 
         self.started_at = time.time()
         self.times = [self.started_at]
-        self.print(f'[{self.name}] started.')
+        self.stopped_at = None
+        self.elapsed = None
+        self.print(f'[{self.timername}] started.')
 
     def __enter__(self):
         return self
@@ -74,42 +75,46 @@ class Timer:
 
         self.elapsed = self.stopped_at - self.started_at
 
-        msg = f'[{self.name}] finish time: {self.elapsed:.{self.digits}f} sec.'
+        msg = f'[{self.timername}] finish time: {self.elapsed:.{self.digits}f} sec.'
         self.print(msg)
 
         if self.callback: self.callback(msg)
 
-    def start(self, callback=None):
+    def start(self, title='', callback=None):
         self.started_at = time.time()
         self.times[0] = self.started_at
 
-        msg = f'[{self.name}] started.'
+        title_block = f'[{title}] ' if title else ''
+        msg = f'[{self.timername}] {title_block}started.'
         self.print(msg)
 
         if callback: callback(msg)
 
-    def stop(self, callback=None):
+    def stop(self, title='', callback=None):
         self.stopped_at = time.time()
         self.times.append(self.stopped_at)
 
         self.elapsed = self.stopped_at - self.started_at
 
-        msg = f'[{self.name}] finish time: {self.elapsed:.{self.digits}f} sec.'
+        title_block = f'[{title}] ' if title else ''
+        msg = f'[{self.timername}] {title_block}finish time: {self.elapsed:.{self.digits}f} sec.'
         self.print(msg)
 
         if callback: callback(msg)
         elif self.callback: self.callback(msg)
 
-    def split(self, callback=None):
+    def split(self, title='', callback=None):
         self.times.append(time.time())
-        msg = f'[{self.name}] split time:  {self.times[-1] - self.times[0]:.{self.digits}f} sec.'
+        title_block = f'[{title}] ' if title else ''
+        msg = f'[{self.timername}] {title_block}split time:  {self.times[-1] - self.times[0]:.{self.digits}f} sec.'
         self.print(msg)
 
         if callback: callback(msg)
 
-    def lap(self, callback=None):
+    def lap(self, title='', callback=None):
         self.times.append(time.time())
-        msg = f'[{self.name}] lap time:    {self.times[-1] - self.times[-2]:.{self.digits}f} sec.'
+        title_block = f'[{title}] ' if title else ''
+        msg = f'[{self.timername}] {title_block}lap time:    {self.times[-1] - self.times[-2]:.{self.digits}f} sec.'
         self.print(msg)
 
         if callback: callback(msg)
